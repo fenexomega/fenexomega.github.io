@@ -1,1 +1,17 @@
-theme: jekyll-theme-cayman
+# Setup
+title:        jordyf.me
+tagline:      All in all you're just another user in the web
+baseurl:      ""
+paginate:     1
+
+# About/contact
+author:
+  name:       Jordy Ferreira   
+  url:        http://jordyf.me
+
+# Gems
+gems:
+  - jekyll-paginate
+
+#Others
+markdown: kramdown

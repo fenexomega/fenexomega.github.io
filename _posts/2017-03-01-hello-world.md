@@ -1,16 +1,9 @@
 ---
-
 layout: post
 title: "Hello World!"
 date: 2017-03-01 20:43 
 cartegories: misc news portuguese
-
-
 ---
-
-
-# Hello World!
-
 
 ## Um novo blog surge.
 
