@@ -1,0 +1,9 @@
+a.web-title
+{
+	color: white;
+}
+
+a.web-title:hover
+{
+	text-decoration: none ;
+}
