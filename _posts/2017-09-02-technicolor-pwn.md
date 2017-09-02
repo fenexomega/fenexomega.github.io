@@ -22,7 +22,7 @@ My objective was to connect to the router using a reverse shell. So, after looki
 
 ![4]({{ site.url}}/imgs/tech-r5336/4.png)
 
-Well, if you have been training web pentest on the OWASP Bad Web Apps, you know that features that use like binaries like in a shell session have a great chance of not beign properly sanitized.
+Well, if you have been training web pentest on the OWASP Bad Web Apps, you know that features that use binaries in a shell session have a great chance of not beign properly sanitized.
 
 So, I fired up __Burp Suite__ and send a ``echo`` command to see if it does the trick. 
 
@@ -38,9 +38,9 @@ After that, I send the infamous ``cat /etc/passwd`` to see about the users on th
 
 ![7]({{ site.url }}/imgs/tech-r5336/7.png)
 
-There are 3 users in the file, only 2 are available to login. But one (super) isn't specified anywhere on the manual. Maybe is a backdoor? Hum...
+There are 3 users in the file, only 2 are available to login. But one (super) isn't specified anywhere on the manual. Maybe is a backdoor? Hm... not to mention the ``config`` shell there. Seems like it is the one that we had problems earlier when using telnet.
 
-Anyway, after that I tried some reverse shells commands, like ``nc`` and ``telnet`` to no aval. It seems that the router didn't have those binaries. So, I decided to just change the shell of the __admin__ user, from ``config`` to ``sh``. 
+Anyways, after that I tried some reverse shells commands, like ``nc`` and ``telnet`` to no aval. It seems that the router didn't have those binaries. So, I decided to just change the shell of the __admin__ user, from ``config`` to ``sh``. 
 
 My first throught was to directly overwrite the passwd file, so I tried this command: ``echo -n 'admin:$1$$CoERg7ynjYLsj2j4glJ34.:1:0::/tmp:/bin/sh' > /etc/passwd ``, to no avail. The page returned was like something went wrong with the ping command.
 
@@ -55,7 +55,7 @@ So, after that, I split the echo command into two, and they became:
 ``echo -n 'admin:$1$$CoERg7ynjYLsj2j4glJ34' > /tmp/1``
 ``echo -n '.:1:0::/tmp:/bin/sh' > /tmp/2``
 
-If these two, I can prompt a trick to write to ``/etc/passwd`` using ``cat``. This is how I got that:
+With those two I can use a trick to write to ``/etc/passwd`` using ``cat``. This is how I got that:
 
 ``cat /tmp/1 /tmp/2 > /tmp/passwd``
 ``cp /tmp/passwd /var/passwd``
