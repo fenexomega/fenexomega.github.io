@@ -10,4 +10,4 @@ Well, like anything people do, I began looking for a target to focus on. And my 
 
 First and above all, I did a port scan on the router. Saw the telnet port open, so did a connection to it with the default credentials (that would be **admin:admin**).
 
-![1](imgs/tech-r5336/1.png)
+![1]({{ site.url }}/imgs/tech-r5336/1.png)
