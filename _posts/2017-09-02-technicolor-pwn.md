@@ -11,3 +11,10 @@ Well, like anything people do, I began looking for a target to focus on. And my 
 First and above all, I did a port scan on the router. Saw the telnet port open, so did a connection to it with the default credentials (that would be **admin:admin**).
 
 ![1]({{ site.url }}/imgs/tech-r5336/1.png)
+
+But when I typed a command: 
+
+![2]({{ site.url }}/imgs/tech-r5336/2.png)
+
+It seems that the default shell is some shitty config interpreter. So what? It's time to hack!
+
