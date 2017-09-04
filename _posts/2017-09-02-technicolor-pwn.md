@@ -1,6 +1,8 @@
 Technicolor TD5336 Pwned
 ======
 
+**EDIT:** This vulnerability has been assigned to a CVE, [CVE-2017-14127](http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-14127).
+
 Hello world! How are you today?
 
 Yesterday I arrived home from work, after a week of training and studing web app pentest. Can't say I didn't learn a lot of things, and trained as well. Then, I realized it was friday. I Didn't feel like drinking or hanging out, so I did what few people do on a friday night: I **hacked** some shit. :^)
