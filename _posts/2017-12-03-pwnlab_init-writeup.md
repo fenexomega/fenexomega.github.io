@@ -73,7 +73,7 @@ wasn't a image (and also with a image extension). I had to find another way in.
 
 And I did.
 
-![lang_cookie](imgs/write-ups/pwnlab_init/lang_cookie.png)
+![lang_cookie]({{ site.url }}/imgs/write-ups/pwnlab_init/lang_cookie.png)
 
 So I set the **lang** cookie to ``../images/[md5hash].png`` and executed my payload.
 With some **netcat** trickery, I finally got home:
