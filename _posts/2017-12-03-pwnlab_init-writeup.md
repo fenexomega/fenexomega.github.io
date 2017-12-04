@@ -23,12 +23,13 @@ PORT     STATE  SERVICE        VERSION
 MAC Address: 08:00:27:22:B7:9F (Oracle VirtualBox virtual NIC)
 
 Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
-# Nmap done at Thu Nov 30 20:54:21 2017 -- 1 IP address (1 host up) scanned in 24.08 seconds```
+# Nmap done at Thu Nov 30 20:54:21 2017 -- 1 IP address (1 host up) scanned in 24.08 seconds
+```
 
 After that, I opened the site on the port 80 and did a recon on the page.
 
-I could see that the server did a `include` with every file that has been refered
-by the `page` param in the URL... hm...
+I could see that the server did a *include* with every file that has been refered
+by the *page* param in the URL... hm...
 That reminds me of a **LFI**.
 
 ## Web Exploitation
