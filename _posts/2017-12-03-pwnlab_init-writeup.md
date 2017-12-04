@@ -67,7 +67,7 @@ Using that credentials and connecting to the mysql database, I found this:
 Now I had user access and could use the upload function to transform a LFI
 into a RCE.
 
-After loging as mike, I wrote a [payload embeded into a png]({{ site.url }}/files/payloads/shell.png) to open a shell. But there is one problem: the page param didn't worked because
+After loging as mike, I wrote a [payload embeded into a png]({{ site.url }}/files/payloads/pwnlab_init.png) to open a shell. But there is one problem: the page param didn't worked because
 I couldn't include a file ending with .png and I could't upload a file that
 wasn't a image (and also with a image extension). I had to find another way in.
 
