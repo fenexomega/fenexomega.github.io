@@ -50,18 +50,18 @@ http://10.0.2.24/?m=php://filter/convert.base64-encode/resource=index
 ```
 And that returned me the source code encoded in base64.
 
-![lfi_filter]({{ site.url }}/imgs/write-ups/pwnlab_initlfi_filter_php_base64.png)
+![lfi_filter]({{ site.url }}/imgs/write-ups/pwnlab_init/lfi_filter_php_base64.png)
 
 Lovely, don't you think?
 
 Analysing the code from the pages, I could see a reference to a __config.php__
 in the index page. So I downloaded that source and what did I see?
 
-![config_mysql]({{ site.url }}/imgs/write-ups/pwnlab_initmysql_credentials.png)
+![config_mysql]({{ site.url }}/imgs/write-ups/pwnlab_init/mysql_credentials.png)
 
 Using that credentials and connecting to the mysql database, I found this:
 
-![mysql_users]({{ site.url }}/imgs/write-ups/pwnlab_initdatabase_credentials.png)
+![mysql_users]({{ site.url }}/imgs/write-ups/pwnlab_init/database_credentials.png)
 
 Now I had user access and could use the upload function to transform a LFI
 into a RCE.
@@ -72,12 +72,12 @@ wasn't a image (and also with a image extension). I had to find another way in.
 
 And I did.
 
-![lang_cookie](imgs/write-ups/pwnlab_initlang_cookie.png)
+![lang_cookie](imgs/write-ups/pwnlab_init/lang_cookie.png)
 
 So I set the **lang** cookie to ``../images/[md5hash].png`` and executed my payload.
 With some **netcat** trickery, I finally got home:
 
-![reverse_shell]({{ site.url }}/imgs/write-ups/pwnlab_initreverse_shell.png)
+![reverse_shell]({{ site.url }}/imgs/write-ups/pwnlab_init/reverse_shell.png)
 Say hello to the reverse shell :)
 
 ## Privilege Escalation
