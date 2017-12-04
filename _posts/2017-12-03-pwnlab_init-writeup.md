@@ -50,23 +50,23 @@ http://10.0.2.24/?m=php://filter/convert.base64-encode/resource=index
 ```
 And that returned me the source code encoded in base64.
 
-![lfi_filter](imgs/write-ups/pwnlab_initlfi_filter_php_base64.png)
+![lfi_filter]({{ site.url }}/imgs/write-ups/pwnlab_initlfi_filter_php_base64.png)
 
 Lovely, don't you think?
 
 Analysing the code from the pages, I could see a reference to a __config.php__
 in the index page. So I downloaded that source and what did I see?
 
-![config_mysql](imgs/write-ups/pwnlab_initmysql_credentials.png)
+![config_mysql]({{ site.url }}/imgs/write-ups/pwnlab_initmysql_credentials.png)
 
 Using that credentials and connecting to the mysql database, I found this:
 
-![mysql_users](imgs/write-ups/pwnlab_initdatabase_credentials.png)
+![mysql_users]({{ site.url }}/imgs/write-ups/pwnlab_initdatabase_credentials.png)
 
 Now I had user access and could use the upload function to transform a LFI
 into a RCE.
 
-After loging as mike, I wrote a [payload embeded into a png](files/payloads/shell.png) to open a shell. But there is one problem: the page param didn't worked because
+After loging as mike, I wrote a [payload embeded into a png]({{ site.url }}/files/payloads/shell.png) to open a shell. But there is one problem: the page param didn't worked because
 I couldn't include a file ending with .png and I could't upload a file that
 wasn't a image (and also with a image extension). I had to find another way in.
 
@@ -77,7 +77,7 @@ And I did.
 So I set the **lang** cookie to ``../images/[md5hash].png`` and executed my payload.
 With some **netcat** trickery, I finally got home:
 
-![reverse_shell](imgs/write-ups/pwnlab_initreverse_shell.png)
+![reverse_shell]({{ site.url }}/imgs/write-ups/pwnlab_initreverse_shell.png)
 Say hello to the reverse shell :)
 
 ## Privilege Escalation
