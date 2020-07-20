@@ -1,6 +1,9 @@
-# Writeup Pwnlab_init
-
-
+---
+layout: post
+title: "Writeup Pwnlab_init"
+date: 2017-12-03 20:43
+tags: pwnlab_init lab writeup
+---
 ## Enumeration
 First I did a scan with **nmap** scanning the first 10000 ports to see the open ones.
 

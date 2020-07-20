@@ -1,0 +1,39 @@
+:root {
+  --main-font-other-color: #e85353;
+}
+
+header h1:before {
+  content: "~ #: ";
+  font-size: 24px;
+}
+
+header {
+  border-bottom: 1px dashed var(--main-font-other-color);
+}
+
+header h1 {
+
+  color: var(--main-font-other-color);
+
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--main-font-other-color);
+}
+
+ul li:before {
+  color: var(--main-font-other-color);
+}
+
+pre {
+  color: var(--main-font-other-color);
+}
+
+th {
+  border-bottom: 1px dashed var(--main-font-other-color);
+}
+
+hr {
+  border-bottom: 1px dashed var(--main-font-other-color);
+  color: var(--main-font-other-color);
+}
