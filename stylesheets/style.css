@@ -2,6 +2,20 @@
   --main-font-other-color: #e85353;
 }
 
+body {
+  background: #151515;
+}
+
+#cube {
+  position: absolute;
+  display: inline;
+  right: 0px;
+  top: 2px;
+  width: 180px;
+  height: 180px;
+  z-index: -1;
+}
+
 header h1:before {
   content: "~ #: ";
   font-size: 24px;
@@ -26,7 +40,7 @@ ul li:before {
 }
 
 pre {
-  color: var(--main-font-other-color);
+  color: #53b9e8;
 }
 
 th {

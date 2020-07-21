@@ -1,12 +1,12 @@
 # Setup
-title:        jordyf.me
+title:        jordyf.com
 tagline:      All in all you're just another user in the web
 baseurl:      ""
 paginate:     1
 
 # About/contact
-author:
-  name:       Jordy Ferreira   
+author:       Jordy Ferreira
+  name:       Jordy Ferreira
   url:        http://github.com/fenexomega
 
 # Gems
@@ -15,5 +15,4 @@ gems:
 
 #Others
 markdown: kramdown
-
 theme: jekyll-theme-hacker
